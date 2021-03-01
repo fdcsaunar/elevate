@@ -1,0 +1,13 @@
+/** Import Bootstrap functions */
+//@import "~bootstrap/scss/functions";
+
+@import url("https://use.typekit.net/pfv0klo.css");
+
+$theme-colors: (
+  primary: #005696,
+  secondary: #BE3225
+);
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;

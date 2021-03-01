@@ -1,0 +1,312 @@
+#hero {
+    
+    padding: 4rem 0;
+    background: rgb(25,71,135);
+    background: linear-gradient(45deg, rgba(25,71,135,1) 30%, rgba(29,113,185,1) 80%);
+
+    img:nth-child(1) {
+        max-width: 600px;
+    }
+
+    p {
+        font-family: 'futura-pt', sans-serif;
+        color: white;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 2.2rem 0 1rem 0;
+        line-height: 2.2rem;
+    }
+
+    a {
+        font-family: 'futura-pt', sans-serif;
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;            
+        padding: 0.5rem 1rem;
+        border: 2px solid white;
+        border-radius: 4rem;
+        text-decoration: none;
+        width: fit-content;
+    }
+    
+    a:hover {
+        color: #005696;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    .countdown {
+
+        h1 {
+            font-family: 'futura-pt-bold', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+
+        }
+
+        h2 {
+            font-family: 'futura-pt-bold', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 4.5rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-family: 'futura-pt-condensed', sans-serif;
+            font-weight: 500;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            padding: 0;
+            font-size: 1.5rem;
+            font-family: 'futura-pt-condensed', sans-serif;
+            font-weight: 500;
+        }
+
+    }
+
+}
+
+#conference-central { 
+
+    padding: 2rem 0;
+    position: relative;
+
+
+    .row {
+        height: 600px;
+    }
+
+    h1 {
+        font-family: 'futura-pt-bold', sans-serif;
+        font-weight: 700;
+        color: #005696;
+        font-size: 3rem;
+        line-height: 3.2rem;
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        font-family: 'futura-pt', sans-serif;
+        color: #005696;
+        font-size: 1.1rem;
+        line-height: 2.2rem;
+        padding-bottom: 1rem;
+    }
+
+    a {
+        font-family: 'futura-pt', sans-serif;
+        color: #005696;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;            
+        padding: 0.5rem 1rem;
+        border: 2px solid #005696;
+        border-radius: 4rem;
+        text-decoration: none;
+        width: fit-content;
+    }
+    
+    a:hover {
+        color: white;
+        background-color: #005696;
+        transition: 0.3s;
+    }
+    
+    .col-lg-8 {
+        padding-left: 3rem;
+    }
+
+    .cc-image {
+        height: 350px;
+        border-radius: 100rem;
+        border: 2px solid #005696;
+        background-image: url("http://elevate.test/wp-content/uploads/2021/02/conference-central.jpg");
+        background-position: top;
+        background-attachment: fixed;
+        background-repeat: repeat;
+        //box-shadow: 20px 20px 0px #005696;
+        //background-size: contain;
+    }
+}
+
+#supplier-sponsors {
+
+    position: relative;
+    border-top: 1px solid #d8d8d8;
+
+    .row {
+        height: 300px;
+
+        .col-lg-3 {
+            img {
+                padding: 1rem;
+            }
+        }
+    }
+
+    h1 {
+        font-family: 'futura-pt-bold', sans-serif;
+        font-weight: 700;
+        color: #005696;
+        font-size: 1.5rem;
+        line-height: 3.2rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+#breaking-ground{
+
+    position: relative;
+    background-color: #005696;
+    padding-top: 2rem;
+
+    .row {
+        height: 600px;
+    }
+
+    img {
+        height: 600px;
+    }
+
+    h1 {
+        font-family: 'futura-pt-bold', sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 3rem;
+        line-height: 3.2rem;
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        font-family: 'futura-pt', sans-serif;
+        color: white;
+        font-size: 1.1rem;
+        line-height: 2.2rem;
+        padding-bottom: 1rem;
+    }
+
+    .shape {
+        height: 350px;
+        border-radius: 100rem;
+        border: 2px solid white;
+        background-color: white;
+        z-index: 99999;
+    } 
+
+    .links {
+
+        display: flex;
+
+        a {
+            margin-right: 1.3rem;
+        }
+
+        a:nth-child(1) {
+            font-family: 'futura-pt', sans-serif;
+            color: #005696;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;            
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            background-color: white;
+            border-radius: 4rem;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        a:nth-child(2) {
+            font-family: 'futura-pt', sans-serif;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;            
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 4rem;
+            text-decoration: none;
+            width: fit-content;
+        }
+        
+        a:nth-child(2):hover {
+            color: #005696;
+            background-color:white;
+            transition: 0.3s;
+        }
+        
+    }
+}
+
+#summary{
+
+    position: relative;
+    background-color: #BE3225;
+    padding: 2rem 0;
+
+    .row {
+        height: 600px;
+    }
+
+    .rfirst {
+        padding-top: 2rem;
+        height: auto;
+    }
+
+    .rsecond {
+        padding-top: 1.5rem;
+        height: auto;
+    }
+
+    .col {
+        padding-right: 2rem;
+    }
+ 
+    h1 {
+        font-family: 'futura-pt-bold', sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 3rem;
+        line-height: 3.2rem;
+    }
+
+    h2 {
+        font-family: 'futura-pt-bold', sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-family: 'futura-pt-condensed', sans-serif;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+    }
+
+    .tradeshow-image {
+        height: 350px;
+        border-radius: 100rem;
+        border: 2px solid white;
+        background-image: url("http://elevate.test/wp-content/uploads/2021/02/tradeshow-scaled-1.jpg");
+        background-position: top;
+        background-attachment: fixed;
+        background-repeat: repeat;
+        background-size: contain;
+    }
+
+}
+
+
+

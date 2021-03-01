@@ -1,0 +1,16 @@
+@import url('https://use.typekit.net/pfv0klo.css');
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+@import "variables";
+@import "global";
+@import "header";
+@import "footer";
+@import "home"; 
+
+header {
+
+    .test {
+        background-color: green;
+    }
+
+}

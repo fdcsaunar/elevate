@@ -1,0 +1,55 @@
+// .banner .nav li {
+//   @extend .nav-item;
+// }
+
+// .banner .nav a {
+//   @extend .nav-link;
+// }
+
+header {
+
+  background: #005696;
+  padding: 1.5rem 0;
+
+  .navbar {
+
+    img {
+      height: 35px; 
+    }
+
+    .nav-primary {
+
+      li {
+        font-family: 'futura-pt', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.4rem 1.2rem;
+        border-radius: 4rem;
+        border: 2px solid white;
+  
+        a {
+          text-transform: uppercase;
+          color: white;
+          text-decoration: none;
+        }
+      }
+
+      li:hover {
+        color: #005696;
+        background-color: white;
+        transition: 0.3s;
+
+        a {
+          color: #005696;
+          transition: 0.3s;
+        }
+      }
+    }
+
+  }
+
+  
+
+  
+
+}
