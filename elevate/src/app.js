@@ -50,3 +50,15 @@ var x = setInterval(function() {
   }
 }, 1000);
 
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.background = "#005696";
+  } else {
+    document.getElementById("header").style.background = "transparent";
+  }
+}
+
+

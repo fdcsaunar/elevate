@@ -9,27 +9,23 @@
 </head>
 <body <?php body_class('');?>>
 
-<header class="nav">
+<header class="navbar navbar-expand fixed-top" id="header">
 
-  <div class="container">
+  <div class="container justify-content-between">
 
-    <div class="navbar sticky-top justify-content-between">
+    <a href="/" class="navbar-brand">
+      <img src="<?= get_template_directory_uri(); ?>/src/assets/images/ais-white.svg">
+    </a>
 
-      <a href="/" class="nav-brand"><img src="<?= get_template_directory_uri(); ?>/src/assets/images/ais-white.svg"></a>
-
-    <nav class="nav-primary">
-
-        <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'top-menu'
-                )
-            );
-        ?>
-
-    </nav>
-
-    </div>
+    <div class="nav-primary">
+          <?php
+              wp_nav_menu(
+                  array(
+                      'theme_location' => 'top-menu'
+                  )
+              );
+          ?>
+      </div>
 
   </div>
 

@@ -1,1 +1,222 @@
-(()=>{var e={309:()=>{var e=new Date("April 16, 2021 15:37:25").getTime(),n=setInterval((function(){var t=(new Date).getTime(),r=e-t,l=Math.floor(r/864e5);null!=document.getElementById("day")&&(document.getElementById("day").innerHTML=l);var o=Math.floor(r%864e5/36e5);null!=document.getElementById("hour")&&(document.getElementById("hour").innerHTML=o);var u=Math.floor(r%36e5/6e4);null!=document.getElementById("min")&&(document.getElementById("min").innerHTML=u);var a=Math.floor(r%6e4/1e3);null!=document.getElementById("sec")&&(document.getElementById("sec").innerHTML=a),document.getElementById("demo").innerHTML=l+"d "+o+"h "+u+"m "+a+"s ",r<0&&(clearInterval(n),document.getElementById("timer").innerHTML="EXPIRED")}),1e3)},303:()=>{}},n={};function t(r){if(n[r])return n[r].exports;var l=n[r]={exports:{}};return e[r](l,l.exports,t),l.exports}t.m=e,t.x=e=>{},t.o=(e,n)=>Object.prototype.hasOwnProperty.call(e,n),(()=>{var e={260:0},n=[[309],[303]],r=e=>{},l=(l,o)=>{for(var u,a,[m,d,c,i]=o,h=0,s=[];h<m.length;h++)a=m[h],t.o(e,a)&&e[a]&&s.push(e[a][0]),e[a]=0;for(u in d)t.o(d,u)&&(t.m[u]=d[u]);for(c&&c(t),l&&l(o);s.length;)s.shift()();return i&&n.push.apply(n,i),r()},o=self.webpackChunk=self.webpackChunk||[];function u(){for(var r,l=0;l<n.length;l++){for(var o=n[l],u=!0,a=1;a<o.length;a++){var m=o[a];0!==e[m]&&(u=!1)}u&&(n.splice(l--,1),r=t(t.s=o[0]))}return 0===n.length&&(t.x(),t.x=e=>{}),r}o.forEach(l.bind(null,0)),o.push=l.bind(null,o.push.bind(o));var a=t.x;t.x=()=>(t.x=a||(e=>{}),(r=u)())})();t.x()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+/***/ (() => {
+
+// jQuery(document).ready(() => routes.loadEvents());
+// var countDownDate = new Date('Apr 12, 2021 0:0:0').getTime(); // Update the count down every 1 second
+// var x = setInterval(function () {
+//   // Get today's date and time
+//   var now = new Date().getTime(); // Find the distance between now and the count down date
+//   var distance = countDownDate - now; // Output the result in an element with id="demo"
+//   // Time calculations for days, hours, minutes and seconds
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById('timer').innerHTML = 'Elevate 2021 has started!';
+//   }
+// }, 1000);
+// Set the date we're counting down to
+var countDownDate = new Date("April 16, 2021 15:37:25").getTime(); // Update the count down every 1 second
+
+var x = setInterval(function () {
+  // Get today's date and time
+  var now = new Date().getTime(); // Find the distance between now and the count down date
+
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  if (document.getElementById('day') != null) document.getElementById('day').innerHTML = days;
+  var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+  if (document.getElementById('hour') != null) document.getElementById('hour').innerHTML = hours;
+  var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+  if (document.getElementById('min') != null) document.getElementById('min').innerHTML = minutes;
+  var seconds = Math.floor(distance % (1000 * 60) / 1000);
+  if (document.getElementById('sec') != null) document.getElementById('sec').innerHTML = seconds; // If the count down is over, write some text 
+  // Output the result in an element with id="demo"
+
+  if( document.getElementById('demo') != null ){
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; // If the count down is over, write some text 
+  }
+
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.background = "#005696";
+  } else {
+    document.getElementById("header").style.background = "transparent";
+  }
+}
+
+/***/ }),
+
+/***/ "./src/app.scss":
+/*!**********************!*\
+  !*** ./src/app.scss ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/******/ 	// the startup function
+/******/ 	// It's empty as some runtime module handles the default behavior
+/******/ 	__webpack_require__.x = x => {};
+/************************************************************************/
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// Promise = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		var deferredModules = [
+/******/ 			["./src/app.js"],
+/******/ 			["./src/app.scss"]
+/******/ 		];
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		var checkDeferredModules = x => {};
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime, executeModules] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0, resolves = [];
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					resolves.push(installedChunks[chunkId][0]);
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) runtime(__webpack_require__);
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			while(resolves.length) {
+/******/ 				resolves.shift()();
+/******/ 			}
+/******/ 		
+/******/ 			// add entry modules from loaded chunk to deferred list
+/******/ 			if(executeModules) deferredModules.push.apply(deferredModules, executeModules);
+/******/ 		
+/******/ 			// run deferred modules when all chunks ready
+/******/ 			return checkDeferredModules();
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 		
+/******/ 		function checkDeferredModulesImpl() {
+/******/ 			var result;
+/******/ 			for(var i = 0; i < deferredModules.length; i++) {
+/******/ 				var deferredModule = deferredModules[i];
+/******/ 				var fulfilled = true;
+/******/ 				for(var j = 1; j < deferredModule.length; j++) {
+/******/ 					var depId = deferredModule[j];
+/******/ 					if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferredModules.splice(i--, 1);
+/******/ 					result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 				}
+/******/ 			}
+/******/ 			if(deferredModules.length === 0) {
+/******/ 				__webpack_require__.x();
+/******/ 				__webpack_require__.x = x => {};
+/******/ 			}
+/******/ 			return result;
+/******/ 		}
+/******/ 		var startup = __webpack_require__.x;
+/******/ 		__webpack_require__.x = () => {
+/******/ 			// reset startup function so it can be called again when more startup code is added
+/******/ 			__webpack_require__.x = startup || (x => {});
+/******/ 			return (checkDeferredModules = checkDeferredModulesImpl)();
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// run startup
+/******/ 	var __webpack_exports__ = __webpack_require__.x();
+/******/ 	
+/******/ })()
+;

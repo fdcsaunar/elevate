@@ -1,0 +1,39 @@
+<?php
+get_header();
+$category = get_queried_object();
+if (is_page('shop')) :
+    $images = get_field('shop_hero_slider');
+else :
+    $images = get_field('hero_slider', $category);
+
+endif;
+if ($images) : ?>
+
+    <div class="container">
+        <div class="autoplay-slider">
+            <?php foreach ($images as $image) : ?>
+                <div class="slider">
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    </div>
+    <?php if (!is_page(24)) : ?>
+        <div class="content">
+            <div class="container">
+                <?php woocommerce_content(); ?>
+
+
+                <div class="supplier-pdfs">
+                    <h1>Downloads</h1>
+                </div>
+
+                <div class="supplier-videos">
+                    <h1>Supplier Videos</h1>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php get_footer(); ?>

@@ -1,0 +1,45 @@
+#hero {
+    background: url('images/ATS-SliderHeroImage.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 700px;
+    padding: 2rem 0;
+
+    .row {
+        min-height: 700px;
+
+        img {
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+        }
+
+        h1, h2, h3, p  {
+            color: white;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 70px;
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+            margin: 0;
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        button {
+            margin: 1rem 0;
+        }
+    }
+}

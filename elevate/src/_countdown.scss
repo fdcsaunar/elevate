@@ -1,0 +1,41 @@
+ #countdown {
+     padding: 2.5rem 0;
+     background-color: #c0312d;
+
+    .col-lg-4 {
+        border-right: 1px solid white;
+
+        h1 {
+            color: white;
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 600;
+            padding-bottom: 5px;
+        }
+    
+        p {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+        }
+    }
+
+    .col-lg-8 {
+        padding: 0 80px;
+
+        h2 {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            font-size: 110px;
+        }
+    
+        p {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+
+ }

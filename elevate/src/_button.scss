@@ -1,0 +1,27 @@
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border: 0;
+}
+
+.transparent {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.blue {
+    margin-top: 15px;
+    background: #015696;
+    border: 1px solid #015696;
+    color: white;
+}
+
+.grey {
+    background: transparent;
+    border: 1px solid #c8c8c8;
+    color: #c8c8c8;
+}

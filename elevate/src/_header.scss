@@ -1,55 +1,84 @@
-// .banner .nav li {
-//   @extend .nav-item;
-// }
-
-// .banner .nav a {
-//   @extend .nav-link;
-// }
-
 header {
+  
+  font-family: 'futura-pt', sans-serif;
+  font-weight: 700;
+  transition:175ms ease;
+  //background:transparent;
 
-  background: #005696;
-  padding: 1.5rem 0;
+  header.scrolled{
+    background: #005696;
+  }
 
-  .navbar {
+  //Logo
+  img {
+    height: 35px;
+  }
 
-    img {
-      height: 35px; 
+  //Links 
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding: auto;
+    margin: auto;
+    padding: 1rem 0;
+
+    li:nth-child(1) {
+      font-size: 1rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 4rem;
+      border: 2px solid transparent;
+      margin-left: 1.5rem;
+
+      a {
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+      }
     }
 
-    .nav-primary {
+    li:nth-child(2) {
+      font-size: 1rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 4rem;
+      border: 2px solid transparent;
+      margin-left: 1.5rem;
 
-      li {
-        font-family: 'futura-pt', sans-serif;
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 0.4rem 1.2rem;
-        border-radius: 4rem;
-        border: 2px solid white;
-  
-        a {
-          text-transform: uppercase;
-          color: white;
-          text-decoration: none;
-        }
+      a {
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
       }
+    }
 
-      li:hover {
+    li:nth-child(3) {
+      font-size: 1rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 4rem;
+      border: 2px solid white;
+      margin-left: 1.5rem;
+      background: white;
+
+      a {
+        text-transform: uppercase;
         color: #005696;
-        background-color: white;
-        transition: 0.3s;
+        text-decoration: none;
+      }
+    }
 
-        a {
-          color: #005696;
-          transition: 0.3s;
-        }
+    li:hover {
+      color: #005696;
+      background-color: white;
+      transition: 0.3s;
+
+      a {
+        color: #005696;
+        transition: 0.3s;
+        text-decoration: none;
       }
     }
 
   }
 
-  
-
-  
-
 }
+
+
