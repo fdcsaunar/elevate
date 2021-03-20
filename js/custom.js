@@ -9,17 +9,34 @@ jQuery(document).on('ready', function () {
     if ($('body').hasClass('woocommerce-cart')) {
         $('#ajaxsearchlite1 input[type="search"]').attr('placeholder', 'Add another product');
         arrangeCartBySupplier();
-        
-        $('.button[name="update_cart"]').on('click', function(){
-            setTimeout(function(){
+
+        $('.button[name="update_cart"]').on('click', function () {
+            setTimeout(function () {
                 location.reload();
-            },5000);
+            }, 4000);
         });
+
+        $('.proinput input[type="search"]').on('keypress', function () {
+            setInterval(() => {
+                $('.resdrg a').each(function(){
+                    $(this).attr('href', '/elevate-search-product'+'?post_class='+ encodeURIComponent( $(this).parents('.asl_r_pagepost ').attr('class') ));
+                });
+            }, 1000);
+        });
+
     }
 
     if ($('.woocommerce-button.invoice').length) {
         $('.woocommerce-button.invoice').text('Order');
     }
+
+    if ($('.order-total th').length) {
+        $('.order-total th').text('Total Excluding GST');
+        setTimeout(() => {
+            $('.order-total th').text('Total Excluding GST');
+        }, 4000);
+    }
+
 
     if ($('.tax-product_cat').length) {
         $('main .content .container').prepend($('.tax-product_cat .woocommerce-breadcrumb').detach());
@@ -113,6 +130,9 @@ function arrangeCartBySupplier() {
 
         if ($(this).prop('checked')) {
             $('.woocommerce-product-seller .switch').not($(this)).prop('checked', false);
+            var total = $(this).parents('.woocommerce-product-seller').find('.sub-total strong').text();
+            $('.shop_table .cart-subtotal bdi').html(total);
+            $('.shop_table .order-total bdi').html(total);
         }
         elevateCheckoutProcess();
     });
@@ -121,65 +141,65 @@ function arrangeCartBySupplier() {
 
 }
 
-function elevateCheckoutProcess(){
+function elevateCheckoutProcess() {
     var href = '/custom-checkout';
     var category = $('.woocommerce-product-seller .switch:checked').parents('.woocommerce-product-seller').data('cat-id');
     var productIds = [];
-    $('.woocommerce-cart-form .cart_item[data-category="'+category+'"]').each(function(){
-        productIds.push( $(this).data('productid') );
+    $('.woocommerce-cart-form .cart_item[data-category="' + category + '"]').each(function () {
+        productIds.push($(this).data('productid'));
     });
     var nonce = $('.elevate-cstm-checkout-nonce').val();
 
-    $('.elevate-cstm-checkout .elevate-checkout-btn').attr('href', href + '?nonce='+ nonce +'&products=' + productIds.toString());
+    $('.elevate-cstm-checkout .elevate-checkout-btn').attr('href', href + '?nonce=' + nonce + '&products=' + productIds.toString());
 
 }
 
-function elevateCheckoutProcessOld() {
-    $('.elevate-cstm-checkout .elevate-checkout-btn').on('click', function () {
-        $(this).text('Please wait...');
-        var postIds = [];
-        var checked = $('.woocommerce-product-seller .switch:checked').parents('.woocommerce-product-seller').data('cat-id');
-        $('.woocommerce-cart-form .cart_item[data-category="'+checked+'"]').each(function(){
-            postIds.push( $(this).data('productid') );
-        });
+// function elevateCheckoutProcessOld() {
+//     $('.elevate-cstm-checkout .elevate-checkout-btn').on('click', function () {
+//         $(this).text('Please wait...');
+//         var postIds = [];
+//         var checked = $('.woocommerce-product-seller .switch:checked').parents('.woocommerce-product-seller').data('cat-id');
+//         $('.woocommerce-cart-form .cart_item[data-category="'+checked+'"]').each(function(){
+//             postIds.push( $(this).data('productid') );
+//         });
 
-        console.log($('.elevate-cstm-checkout-nonce').val());
-        return false;
+//         console.log($('.elevate-cstm-checkout-nonce').val());
+//         return false;
 
-        $.ajax({
-            type : "post",
-            dataType : "json",
-            url : myAjax.ajaxurl,
-            data : {
-                action: "elecate_cstm_checkout_process", 
-                post_id : postIds, 
-                nonce: $.trim($('.elevate-cstm-checkout-nonce').val())
-            },
-            success: function(response) {
-            //    if( response == 'Success' ){
-                   $('.wc-proceed-to-checkout .checkout-button').trigger('click');
-            //    }
-            }
-         }); 
-    });
-}
+//         $.ajax({
+//             type : "post",
+//             dataType : "json",
+//             url : myAjax.ajaxurl,
+//             data : {
+//                 action: "elecate_cstm_checkout_process", 
+//                 post_id : postIds, 
+//                 nonce: $.trim($('.elevate-cstm-checkout-nonce').val())
+//             },
+//             success: function(response) {
+//             //    if( response == 'Success' ){
+//                    $('.wc-proceed-to-checkout .checkout-button').trigger('click');
+//             //    }
+//             }
+//          }); 
+//     });
+// }
 
 function elevateSupplierTotal() {
     $(".woocommerce-cart-form tbody tr.woocommerce-product-seller").each(function () {
         var q = 0,
             p = 0;
-        $('.woocommerce-cart-form tbody tr.cart_item[data-category="'+$(this).data('cat-id')+'"]').each(function () {
-            q += parseInt( $.trim( $(this).find('.product-quantity .quantity input').val() ) );
-            p += parseFloat(stripCharacters( $.trim( $(this).find('.product-subtotal .woocommerce-Price-amount bdi').text() ) ));
+        $('.woocommerce-cart-form tbody tr.cart_item[data-category="' + $(this).data('cat-id') + '"]').each(function () {
+            q += parseInt($.trim($(this).find('.product-quantity .quantity input').val()));
+            p += parseFloat(stripCharacters($.trim($(this).find('.product-subtotal .woocommerce-Price-amount bdi').text())));
         });
         $(this).find('.quantity').text(q);
-        $(this).find('.sub-total strong').text('$'+numberWithCommas(p));
+        $(this).find('.sub-total strong').text('$' + numberWithCommas(p));
     });
 }
 
 function stripCharacters(str) {
-    str = str.replace('$','');
-    str = str.replace(',','');
+    str = str.replace('$', '');
+    str = str.replace(',', '');
     return str;
 }
 

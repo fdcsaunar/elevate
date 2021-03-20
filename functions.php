@@ -506,66 +506,6 @@ function customSingleDisclaimer()
 
 show_admin_bar(true);
 
-
-add_action('wp_ajax_ql_woocommerce_ajax_add_to_cart',  'ql_woocommerce_ajax_add_to_cart');
-add_action('wp_ajax_nopriv_ql_woocommerce_ajax_add_to_cart',  'ql_woocommerce_ajax_add_to_cart');
-function ql_woocommerce_ajax_add_to_cart()
-{
-
-    $product_id = apply_filters('ql_woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
-
-    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
-
-    $variation_id = absint($_POST['variation_id']);
-
-    $passed_validation = apply_filters('ql_woocommerce_add_to_cart_validation', true, $product_id, $quantity);
-
-    $product_status = get_post_status($product_id);
-
-    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
-
-        do_action('ql_woocommerce_ajax_added_to_cart', $product_id);
-
-        if ('yes' === get_option('ql_woocommerce_cart_redirect_after_add')) {
-
-            wc_add_to_cart_message(array($product_id => $quantity), true);
-        }
-
-        WC_AJAX::get_refreshed_fragments();
-    } else {
-
-        $data = array(
-
-            'error' => true,
-
-            'product_url' => apply_filters('ql_woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
-        );
-
-        echo wp_send_json($data);
-    }
-
-    wp_die();
-}
-
-// add_action("wp_ajax_elecate_cstm_checkout_process", "elecate_cstm_checkout_process");
-// add_action("wp_ajax_nopriv_elecate_cstm_checkout_process", "elecate_cstm_checkout_process");
-
-// function elecate_cstm_checkout_process()
-// {
-//     //    if ( !wp_verify_nonce( $_REQUEST['nonce'], "elevate_cstm_checkout_nonce")) {
-//     //       exit("No naughty business please");
-//     //    }
-//     print_r(WC()->cart->get_cart());
-//     die();
-//     $_SESSION['elecate_cstm_cart'] = [];
-//     foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-//         $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-//         if (!in_array($product_id, $_REQUEST['post_id'])) {
-//             $_SESSION['elecate_cstm_cart'][] = $cart_item;
-//             if ($cart_item_key) WC()->cart->remove_cart_item($cart_item_key);
-//         }
-//     }
-// }
 add_action('parse_request', 'elevate_cstm_checkout');
 function elevate_cstm_checkout()
 {
@@ -593,15 +533,6 @@ function elevate_cstm_checkout()
     }
 }
 
-// function elevate_woocommerce_payment_complete( $order_id ) {
-//     $usr = wp_get_current_user();
-//     $cart_fragments = get_option('elevate_cstm_cart_'.$usr->ID);
-//     foreach( $cart_fragments as $item ){
-//         WC()->cart->add_to_cart( $item['product_id'] );
-//     }
-// }
-// add_action( 'woocommerce_payment_complete', 'elevate_woocommerce_payment_complete', 10, 1 );
-// add_action( 'woocommerce_order_status_processing', 'elevate_woocommerce_payment_complete', 10, 1);
 function vs_wc_add_my_account_orders_column( $columns ) {
 
 	$new_columns = array();
@@ -672,3 +603,31 @@ function vs_wc_my_orders_store_number( $order ) {
 echo $order_number;
 }
 add_action( 'woocommerce_my_account_my_orders_column_order-store-number', 'vs_wc_my_orders_store_number' );
+
+// add_action('wp_ajax_search_woocommerce_ajax_add_to_cart',  'search_woocommerce_ajax_add_to_cart');
+// add_action('wp_ajax_nopriv_search_woocommerce_ajax_add_to_cart',  'search_woocommerce_ajax_add_to_cart');
+// function search_woocommerce_ajax_add_to_cart()
+// {
+//     $title = $_REQUEST['post_title'];
+//     $prod = get_page_by_title( $title, OBJECT, 'product' );
+//     WC()->cart->add_to_cart($prod->ID);
+//     echo 'Success';
+//     die();
+
+// }
+
+// add_action('parse_request', 'elevate_search_add_to_cart');
+// function elevate_search_add_to_cart()
+// {
+//     // echo $_SERVER["REQUEST_URI"];
+//     // $url = strtok($_SERVER["REQUEST_URI"], '?');
+//     // $arr = explode('-', $url);
+//     // print_r($arr);
+//     // var_dump(strpos( $url, 'elevate-search' ));
+//     if( $_SERVER["REQUEST_URI"] == '/elevatesearch-add-to-cart' ){
+//         $title = urldecode( $_REQUEST['post_title'] );
+//         $prod = get_page_by_title( $title, OBJECT, 'product' );
+//         WC()->cart->add_to_cart($prod->ID);
+//         wp_redirect('/cart/');
+//     }
+// }

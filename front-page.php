@@ -48,34 +48,6 @@
 
 </section>
 
-<!-- <section id="conference-central">
-
-    <div class="row-align-items-center">
-    
-        <div class="col-lg-4">
-
-            <h1>CONFERENCE<br>CENTRAL</h1>
-
-            <p>You will find all of the AIS Conference information on THE VAULT in the Conference Central section.</p>
-
-            <a href="#">VISIT THE VAULT</a>
-        
-
-        </div>
-
-        <div class="col-lg-8">
-
-            <div class="cc-image"></div>
-        
-        </div>
-    
-    </div>
-
-</section> -->
-
-
-
-
 <section id="conference-central">
 
   <div class="container">
