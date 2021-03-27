@@ -22,20 +22,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product;
 
 $bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
-$bulkbylabel = get_post_meta(get_the_ID(), 'bulkbylabel');
 ?>
 
-<?php if ( $product->is_on_sale() && ( empty($bonusprod) || $bonusprod[0] == '' ) ) : ?>
+<?php if ( $product->is_on_sale() ) : ?>
+	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product );
 
-	<?php if( !empty($bulkbylabel) && $bulkbylabel[0] != ''): ?>
-		<?php echo '<span class="bulkbylabel">'.$bulkbylabel[0].'</span>'; ?>
-	<?php endif; ?>
+endif; ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
-<?php elseif( !empty($bonusprod) && $bonusprod[0] != '' ): ?>
+<?php if( !empty($bonusprod) && $bonusprod[0] != '' ): ?>
 	<?php echo '<span class="bonusprod">With Bonus Item</span>'; ?>
 
 	<?php
-endif;
+	endif;
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

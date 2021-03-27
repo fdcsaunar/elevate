@@ -76,25 +76,25 @@ function cfwc_save_custom_field($post_id)
 }
 add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field');
 
-function cfwc_display_custom_field()
-{
-    global $post;
-    // Check for the custom field value
-    $product = wc_get_product($post->ID);
-    $title = $product->get_meta('barcode');
-    if ($title) {
-        // Only display our field if we've got a value for the field title
-        printf(
-            '<div class="product_meta">
-                    <span class="cfwc-custom-field-wrapper">
-                    <span class="cfwc-title-field">%s</span>
-                    </span>
-                    </div>',
-            esc_html($title)
-        );
-    }
-}
-add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field');
+// function cfwc_display_custom_field()
+// {
+//     global $post;
+//     // Check for the custom field value
+//     $product = wc_get_product($post->ID);
+//     $title = $product->get_meta('barcode');
+//     if ($title) {
+//         // Only display our field if we've got a value for the field title
+//         printf(
+//             '<div class="product_meta">
+//                     <span class="cfwc-custom-field-wrapper">
+//                     <span class="cfwc-title-field">%s</span>
+//                     </span>
+//                     </div>',
+//             esc_html($title)
+//         );
+//     }
+// }
+// add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field');
 
 // PRODUCT CATEGORY
 
@@ -120,36 +120,36 @@ function cfwc_save_custom_field2($post_id)
 }
 add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field2');
 
-function cfwc_display_custom_field2()
-{
-    global $post;
-    // Check for the custom field value
-    $product = wc_get_product($post->ID);
-    $title = $product->get_meta('prodcat');
-    if ($title) {
-        // Only display our field if we've got a value for the field title
-        printf(
-            '<div class="product_meta">
-                    <span class="cfwc-custom-field-wrapper">
-                    Category: <span class="cfwc-title-field">%s</span>
-                    </span>
-                    </div>',
-            esc_html($title)
-        );
-    }
-}
-add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field2');
+// function cfwc_display_custom_field2()
+// {
+//     global $post;
+//     // Check for the custom field value
+//     $product = wc_get_product($post->ID);
+//     $title = $product->get_meta('prodcat');
+//     if ($title) {
+//         // Only display our field if we've got a value for the field title
+//         printf(
+//             '<div class="product_meta">
+//                     <span class="cfwc-custom-field-wrapper">
+//                     Category: <span class="cfwc-title-field">%s</span>
+//                     </span>
+//                     </div>',
+//             esc_html($title)
+//         );
+//     }
+// }
+// add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field2');
 
 // PRODUCT BRAND
 
 function cfwc_create_custom_field3()
 {
     $args = array(
-        'id' => 'brand',
-        'label' => __('Brand', 'cfwc'),
+        'id' => 'prodbrand',
+        'label' => __('Product Brand', 'cfwc'),
         'class' => 'cfwc-custom-field',
         'desc_tip' => true,
-        'description' => __('Brand', 'ctwc'),
+        'description' => __('Product Brand', 'ctwc'),
     );
     woocommerce_wp_text_input($args);
 }
@@ -158,31 +158,31 @@ add_action('woocommerce_product_options_general_product_data', 'cfwc_create_cust
 function cfwc_save_custom_field3($post_id)
 {
     $product = wc_get_product($post_id);
-    $title = isset($_POST['brand']) ? $_POST['brand'] : '';
-    $product->update_meta_data('brand', sanitize_text_field($title));
+    $title = isset($_POST['prodbrand']) ? $_POST['prodbrand'] : '';
+    $product->update_meta_data('prodbrand', sanitize_text_field($title));
     $product->save();
 }
 add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field3');
 
-function cfwc_display_custom_field3()
-{
-    global $post;
-    // Check for the custom field value
-    $product = wc_get_product($post->ID);
-    $title = $product->get_meta('brand');
-    if ($title) {
-        // Only display our field if we've got a value for the field title
-        printf(
-            '<div class="product_meta">
-                    <span class="cfwc-custom-field-wrapper">
-                    Brand: <span class="cfwc-title-field">%s</span>
-                    </span>
-                    </div>',
-            esc_html($title)
-        );
-    }
-}
-add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field3');
+// function cfwc_display_custom_field3()
+// {
+//     global $post;
+//     // Check for the custom field value
+//     $product = wc_get_product($post->ID);
+//     $title = $product->get_meta('brand');
+//     if ($title) {
+//         // Only display our field if we've got a value for the field title
+//         printf(
+//             '<div class="product_meta">
+//                     <span class="cfwc-custom-field-wrapper">
+//                     Brand: <span class="cfwc-title-field">%s</span>
+//                     </span>
+//                     </div>',
+//             esc_html($title)
+//         );
+//     }
+// }
+// add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field3');
 
 
 // MINIMUM ORDER QUANTITY
@@ -218,11 +218,7 @@ function cfwc_display_custom_field4()
     if ($title) {
         // Only display our field if we've got a value for the field title
         printf(
-            '<div class="product_meta">
-                    <span class="cfwc-custom-field-wrapper">
-                    Minimum Order Quantity: <span class="cfwc-title-field">%s</span>
-                    </span>
-                    </div>',
+            '<div class="product_meta min_quantity"><h3>Min Order Qty: <span class="min_quantity">%s</span></h3></div>',
             esc_html($title)
         );
     }
@@ -232,53 +228,53 @@ add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field4'
 
 // BONUS PRODUCTS
 
-function cfwc_create_custom_field5()
-{
-    $args = array(
-        'id' => 'bonusprod',
-        'label' => __('Bonus Products', 'cfwc'),
-        'class' => 'cfwc-custom-field',
-        'desc_tip' => true,
-        'description' => __('Bonus Products', 'ctwc'),
-    );
-    woocommerce_wp_text_input($args);
-}
-add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_field5');
+// function cfwc_create_custom_field5()
+// {
+//     $args = array(
+//         'id' => 'bonusprod',
+//         'label' => __('Bonus Products', 'cfwc'),
+//         'class' => 'cfwc-custom-field',
+//         'desc_tip' => true,
+//         'description' => __('Bonus Products', 'ctwc'),
+//     );
+//     woocommerce_wp_text_input($args);
+// }
+// add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_field5');
 
-function cfwc_save_custom_field5($post_id)
-{
-    $product = wc_get_product($post_id);
-    $title = isset($_POST['bonusprod']) ? $_POST['bonusprod'] : '';
-    $product->update_meta_data('bonusprod', sanitize_text_field($title));
-    $product->save();
-}
-add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field5');
+// function cfwc_save_custom_field5($post_id)
+// {
+//     $product = wc_get_product($post_id);
+//     $title = isset($_POST['bonusprod']) ? $_POST['bonusprod'] : '';
+//     $product->update_meta_data('bonusprod', sanitize_text_field($title));
+//     $product->save();
+// }
+// add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field5');
 
-function cfwc_display_custom_field5()
-{
-    $bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
-    if (!empty($bonusprod) && $bonusprod[0] != '') :
-        $prod = get_page_by_title($bonusprod[0], OBJECT, 'product');
-        // echo $prod->ID;
-        echo '<div class="bonus-item-meta">';
-        echo '<img src="' . get_the_post_thumbnail_url($prod->ID) . '">';
-        echo '<a href="' . get_permalink($prod->ID) . '" class="cfwc-custom-field-wrapper">Bonus Product/s: ' . $bonusprod[0] . '</a>';
-        echo '</div>';
-    endif;
-}
-add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field5');
+// function cfwc_display_custom_field5()
+// {
+//     $bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
+//     if (!empty($bonusprod) && $bonusprod[0] != '') :
+//         $prod = get_page_by_path($bonusprod[0], OBJECT, 'product');
+//         // echo $prod->ID;
+//         echo '<div class="bonus-item-meta">';
+//         echo '<img src="' . get_the_post_thumbnail_url($prod->ID) . '">';
+//         echo '<a href="' . get_permalink($prod->ID) . '" class="cfwc-custom-field-wrapper">Bonus Product/s: ' . $bonusprod[0] . '</a>';
+//         echo '</div>';
+//     endif;
+// }
+// add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field5');
 
 
-// BULK BY LABEL
+// BULK BuY Quantity
 
 function cfwc_create_custom_field6()
 {
     $args = array(
-        'id' => 'bulkbylabel',
-        'label' => __('Bulk By Label', 'cfwc'),
+        'id' => 'bulkbuy1_qty',
+        'label' => __('Bulk Buy Quantity 1', 'cfwc'),
         'class' => 'cfwc-custom-field',
         'desc_tip' => true,
-        'description' => __('Bulk By Label', 'ctwc'),
+        'description' => __('Bulk Buy Quantity 1', 'ctwc'),
     );
     woocommerce_wp_text_input($args);
 }
@@ -287,8 +283,8 @@ add_action('woocommerce_product_options_general_product_data', 'cfwc_create_cust
 function cfwc_save_custom_field6($post_id)
 {
     $product = wc_get_product($post_id);
-    $title = isset($_POST['bulkbylabel']) ? $_POST['bulkbylabel'] : '';
-    $product->update_meta_data('bulkbylabel', sanitize_text_field($title));
+    $title = isset($_POST['bulkbuy1_qty']) ? $_POST['bulkbuy1_qty'] : '';
+    $product->update_meta_data('bulkbuy1_qty', sanitize_text_field($title));
     $product->save();
 }
 add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field6');
@@ -298,12 +294,12 @@ function cfwc_display_custom_field6()
     global $post;
     // Check for the custom field value
     $product = wc_get_product($post->ID);
-    $title = $product->get_meta('bulkbylabel');
+    $title = $product->get_meta('bulkbuy1_qty');
     if ($title) {
         // Only display our field if we've got a value for the field title
         printf(
             '<div class="product_meta">
-                    <span class="cfwc-custom-field-wrapper">
+                    <span class="cfwc-custom-field-wrapper">Bulk Buy
                     <span class="cfwc-title-field">%s</span>
                     </span>
                     </div>',
@@ -631,3 +627,247 @@ add_action( 'woocommerce_my_account_my_orders_column_order-store-number', 'vs_wc
 //         wp_redirect('/cart/');
 //     }
 // }
+
+// BULK BuY Quantity
+
+function cfwc_create_custom_field7()
+{
+    $args = array(
+        'id' => 'bulkbuy2_qty',
+        'label' => __('Bulk Buy Quantity 2', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Bulk Buy Quantity 2', 'ctwc'),
+    );
+    woocommerce_wp_text_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_field7');
+
+function cfwc_save_custom_field7($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['bulkbuy2_qty']) ? $_POST['bulkbuy2_qty'] : '';
+    $product->update_meta_data('bulkbuy2_qty', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field7');
+
+function cfwc_display_custom_field7()
+{
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $title = $product->get_meta('bulkbuy2_qty');
+    if ($title) {
+        // Only display our field if we've got a value for the field title
+        printf(
+            '<div class="product_meta">
+                    <span class="cfwc-custom-field-wrapper">Bulk Buy
+                    <span class="cfwc-title-field">%s</span>
+                    </span>
+                    </div>',
+            esc_html($title)
+        );
+    }
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field7');
+
+add_action( 'woocommerce_single_product_summary', 'custom_field_display_above_title', 2 );
+function custom_field_display_above_title(){
+    global $product;
+
+    // Get the custom field value
+    $prodbrand = '<span class="brand">'.get_post_meta( $product->get_id(), 'prodbrand', true ).'</span>';
+    $prodcat = '<span class="cat">'.get_post_meta( $product->get_id(), 'prodcat', true ).'</span>';
+    $barcode = '<span class="barcode">'.get_post_meta( $product->get_id(), 'barcode', true ).'</span>';
+    $sku = '<span class="sku">'.$product->get_sku().'</span>';
+
+    $cats = get_the_terms( $product->get_id(), 'product_cat' );
+    $cat_html = "<span class='category'><a href='".$cats[0]->slug."'>".$cats[0]->name."</a></span>";
+
+    // Display
+    echo "<p class='product_meta'>$cat_html > $prodbrand > $prodcat</p>";
+    echo "<p class='product_meta'>Barcode: $barcode | SKU: $sku</p>";
+}
+
+add_action( 'woocommerce_before_add_to_cart_form', 'custom_field_display_after_desc', 2 );
+function custom_field_display_after_desc(){
+    global $product;
+
+    // Get the custom field value
+    $note = '<span class="note">Note: <i>'.get_post_meta( $product->get_id(), 'prodnote', true ).'<i></span>';
+    $desc = get_the_content( $product->get_id() );
+
+    // Display
+    echo "<p class='product_meta note' style='display:none;'>$note</p>";
+    echo "<div class='product_meta description'><p>$desc</p></div>";
+}
+
+function vs_conditional_email_recipient( $recipient, $order ) {
+
+	// Bail on WC settings pages since the order object isn't yet set yet
+	// Not sure why this is even a thing, but shikata ga nai
+	$page = $_GET['page'] = isset( $_GET['page'] ) ? $_GET['page'] : '';
+	if ( 'wc-settings' === $page ) {
+		return $recipient; 
+	}
+	
+	// just in case
+	if ( ! $order instanceof WC_Order ) {
+		return $recipient; 
+	}
+
+	$items = $order->get_items();
+	
+	// check if a shipped product is in the order	
+	foreach ( $items as $item ) {
+		$product = $order->get_product_from_item( $item );
+		
+		// add our extra recipient if there's a shipped product - commas needed!
+		// we can bail if we've found one, no need to add the recipient more than once
+        $cats = get_the_terms( $product->get_id(), 'product_cat' );
+    $contact_details = get_field('supplier_contact_details', 'product_cat_'.$cats[0]->term_id);
+		if ( $product && $product->needs_shipping() ) {
+			$recipient .= ', '.$contact_details['supplier_email'].', '.$contact_details['additional_supplier_email'];
+			return $recipient;
+		}
+	}
+	
+	return $recipient;
+}
+
+function cfwc_create_custom_bonus_code()
+{
+    $args = array(
+        'id' => 'bonusprod_code',
+        'label' => __('Bonus Product Code', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Bonus Product Code', 'ctwc'),
+    );
+    woocommerce_wp_text_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_bonus_code');
+
+function cfwc_save_custom_field_bonus_code($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['bonusprod_code']) ? $_POST['bonusprod_code'] : '';
+    $product->update_meta_data('bonusprod_code', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_bonus_code');
+
+function cfwc_display_custom_bonus_code()
+{
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $title = $product->get_meta('bonusprod_code');
+    if ($title) {
+        // Only display our field if we've got a value for the field title
+        printf(
+            '<div class="product_meta">
+                    <span class="cfwc-custom-field-wrapper">Bonus Product Code: 
+                    <span class="cfwc-title-field">%s</span>
+                    </span>
+                    </div>',
+            esc_html($title)
+        );
+    }
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_bonus_code');
+
+function cfwc_create_custom_bonus_description()
+{
+    $args = array(
+        'id' => 'bonusprod_dec',
+        'label' => __('Bonus Product Description', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Bonus Product Description', 'ctwc'),
+    );
+    woocommerce_wp_textarea_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_bonus_description');
+
+function cfwc_save_custom_field_bonus_description($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['bonusprod_dec']) ? $_POST['bonusprod_dec'] : '';
+    $product->update_meta_data('bonusprod_dec', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_bonus_description');
+
+function cfwc_display_custom_bonus_description()
+{
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $title = $product->get_meta('bonusprod_dec');
+    if ($title) {
+        // Only display our field if we've got a value for the field title
+        printf(
+            '<div class="product_meta">
+                    <span class="cfwc-custom-field-wrapper">Bonus Product Description: 
+                    <span class="cfwc-title-field">%s</span>
+                    </span>
+                    </div>',
+            esc_html($title)
+        );
+    }
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_bonus_description');
+
+function get_attachment_url_by_slug( $slug ) {
+    $slug = implode('.', explode('.', $slug, -1) );
+    $args = array(
+      'post_type' => 'attachment',
+      'name' => sanitize_title($slug),
+      'posts_per_page' => 1,
+      'post_status' => 'inherit',
+    );
+    $_header = get_posts( $args );
+    $header = $_header ? array_pop($_header) : null;
+    return $header ? wp_get_attachment_url($header->ID) : '';
+  }
+
+  function cfwc_create_custom_bonus_image()
+{
+    $args = array(
+        'id' => 'bonusprod_images',
+        'label' => __('Bonus Product Image name', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Bonus Product Image name', 'ctwc'),
+    );
+    woocommerce_wp_text_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_bonus_image');
+
+function cfwc_save_custom_field_bonus_image($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['bonusprod_images']) ? $_POST['bonusprod_images'] : '';
+    $product->update_meta_data('bonusprod_images', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_bonus_image');
+
+function cfwc_display_custom_bonus_image()
+{
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $image = '<img src="'. get_attachment_url_by_slug( $product->get_meta('bonusprod_images') ).'" width="200">';
+    if ($image) {
+        // Only display our field if we've got a value for the field title
+        echo '<div class="product_meta">
+                    <span class="cfwc-custom-field-wrapper">Bonus Product : 
+                    '.$image.'
+                    </span>
+                    </div>';
+    }
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_bonus_image');

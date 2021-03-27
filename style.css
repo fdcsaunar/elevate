@@ -245,9 +245,9 @@ form.woocommerce-checkout .woocommerce-input-wrapper textarea {
   text-transform: uppercase;
 } */
 
-.woocommerce span.bonusprod {
+/* .woocommerce span.bonusprod {
   min-height: 50px;
-  min-width: 96px;
+  min-width: 130px;
   font-size: 12px;
   font-weight: 400;
   position: absolute;
@@ -261,24 +261,22 @@ form.woocommerce-checkout .woocommerce-input-wrapper textarea {
   z-index: 9;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-}
+} */
 
 .woocommerce span.bulkbylabel {
-  min-height: 20px;
-  min-width: 80px;
+  width: 60%;
   font-size: 14px;
   font-weight: 400;
-  position: absolute;
+  position: relative;
   text-align: center;
   border-radius: 30px;
-  margin: -1em -1em 0 0 !important;
   background-color: #daa70d;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  line-height: 3.236;
+  line-height: 2.5;
   color: #fff;
-  right: 0;
-  bottom: 42%;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .woocommerce-info {
@@ -410,27 +408,30 @@ body:not(.page-template-front-page) #primary {
   flex-basis: 45%;
   width: 100px !important;
 }
-.bonus-item-meta p, .bonus-item-meta a {
+
+.bonus-item-meta p,
+.bonus-item-meta a {
   flex-basis: 45%;
-  font-size:11px !important;
+  font-size: 11px !important;
 }
 
 body.single-product .bonus-item-meta img {
   flex-basis: 20%;
 }
 
-body.woocommerce-cart #ajaxsearchlite1{
-    float:left;
-    margin-bottom:0px;
+body.woocommerce-cart #ajaxsearchlite1 {
+  float: left;
+  margin-bottom: 0px;
 }
 
-input[name="coupon_code"]{
+input[name="coupon_code"] {
   width: 120px !important;
 }
 
-.woocommerce-product-seller input, .woocommerce-product-seller h4{
+.woocommerce-product-seller input,
+.woocommerce-product-seller h4 {
   display: inline;
-  margin-right:20px !important;
+  margin-right: 20px !important;
 }
 
 .woocommerce-product-seller .switch {
@@ -455,6 +456,7 @@ input[name="coupon_code"]{
   background: var(--b, var(--background));
   transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 }
+
 .woocommerce-product-seller .switch:after {
   content: '';
   display: block;
@@ -463,6 +465,7 @@ input[name="coupon_code"]{
   position: absolute;
   transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
 }
+
 .woocommerce-product-seller .switch:checked {
   --b: var(--active);
   --bc: var(--active);
@@ -470,28 +473,35 @@ input[name="coupon_code"]{
   --d-t: 0.6s;
   --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
 }
-.woocommerce-product-seller .switch:disabled  {
+
+.woocommerce-product-seller .switch:disabled {
   --b: var(--disabled);
   cursor: not-allowed;
   opacity: 0.9;
 }
+
 .woocommerce-product-seller .switch:disabled:checked {
   --b: var(--disabled-inner);
   --bc: var(--border);
 }
+
 .woocommerce-product-seller .switch:disabled {
   cursor: not-allowed;
 }
+
 .woocommerce-product-seller .switch:hover:not(:checked):not(:disabled) {
   --bc: var(--border-hover);
 }
+
 .woocommerce-product-seller .switch:focus {
   box-shadow: 0 0 0 var(--focus);
 }
+
 .woocommerce-product-seller .switch {
   width: 38px;
   border-radius: 11px;
 }
+
 .woocommerce-product-seller .switch:after {
   left: 2px;
   top: 2px;
@@ -501,49 +511,56 @@ input[name="coupon_code"]{
   background: var(--ab, var(--border));
   transform: translateX(var(--x, 0));
 }
+
 .woocommerce-product-seller .switch:checked {
   --ab: var(--active-inner);
   --x: 17px;
 }
+
 .woocommerce-product-seller .switch:disabled:not(:checked):after {
   opacity: 0.6;
 }
-.wc-proceed-to-checkout{
+
+.wc-proceed-to-checkout {
   display: none !important;
 }
 
-.elevate-cstm-checkout{
+.elevate-cstm-checkout {
   padding: 1em 0;
 }
 
-.elevate-cstm-checkout .elevate-checkout-btn{
+.elevate-cstm-checkout .elevate-checkout-btn {
   background-color: #015696;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    display: block;
-    text-align: center;
-    margin-bottom: 1em;
-    font-size: 1.25em;
-    padding: 1em;
-    margin: 0;
-    line-height: 1;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    overflow: visible;
-    padding: 12px;
-    font-weight: 400;
-    border-radius: 5px;
-    left: auto;
-    border: 1px solid #015696;
-    box-shadow: none;
-    text-shadow: none;
-    font-family: "Oswald", sans-serif;
-    text-transform: uppercase;
-    padding:1em;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 1.25em;
+  padding: 1em;
+  margin: 0;
+  line-height: 1;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  overflow: visible;
+  padding: 12px;
+  font-weight: 400;
+  border-radius: 5px;
+  left: auto;
+  border: 1px solid #015696;
+  box-shadow: none;
+  text-shadow: none;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  padding: 1em;
 }
 
-.elevate-cstm-checkout.no-supplier-selected{
+.elevate-cstm-checkout.no-supplier-selected {
   opacity: 0.6;
   pointer-events: none;
+}
+
+.single-product div.product_meta:not(form div.product_meta, div.description){
+  display: none;
 }

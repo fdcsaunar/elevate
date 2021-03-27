@@ -1,5 +1,5 @@
 @import url(https://use.typekit.net/pfv0klo.css);
-@import url(https://use.typekit.net/pfv0klo.css);
+
 /* @charset "UTF-8"; */
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -10363,7 +10363,7 @@ header .test {
   background-color: green;
 }
 .woocommerce div.product .product_title {
-  font-family: "Epilogue", sans-serif;
+  font-family: "futura-pt", sans-serif;
   font-size: 32px;
   color: black;
 }
@@ -10374,11 +10374,11 @@ header .test {
 }
 
 .products.columns-4 h2 {
-  font-family: "Epilogue", sans-serif;
+  font-family: "futura-pt", sans-serif;
   font-size: 16px;
   color: black;
   line-height: 21px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
@@ -10411,17 +10411,19 @@ header .test {
 }
 
 .woocommerce span.onsale {
-    min-height: 20px;
-    min-width: 80px;
-    font-size: 14px;
-    font-weight: 400;
+    min-height: auto;
+    min-width: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
     position: absolute;
     text-align: center;
     border-radius: 30px;
-    margin: -1em -1em 0 0 !important;
+    line-height: 2rem;
+    padding: 0.25rem 1rem;
+    margin: -1em -1em 0 !important;
     background-color: #c0342f;
     text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'futura-pt-condensed', sans-serif;
 }
 
 .woocommerce span.bonusprod {
@@ -10438,7 +10440,7 @@ header .test {
     background-color: #28a745;
     color: #ffffff;
     z-index: 9;
-    font-family: "Oswald", sans-serif;
+    font-family: "futura-pt", sans-serif;
     text-transform: uppercase;
     margin: -1em -1em 0 0 !important;
 }
@@ -10453,13 +10455,14 @@ header .test {
 }
 
 .page-title {
-  font-family: "Epilogue", sans-serif;
-  color: black;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  color: #194787;
   margin: 0;
 }
 
 .woocommerce .woocommerce-result-count {
-  font-family: "Epilogue", sans-serif;
+  font-family: "futura-pt", sans-serif;
   font-size: 14px;
   color: #c8c8c8;
   margin-top: 0.5rem;
@@ -10472,7 +10475,7 @@ header .test {
 
 .woocommerce .woocommerce-ordering select {
   vertical-align: center;
-  font-family: "Epilogue", sans-serif;
+  font-family: "futura-pt", sans-serif;
   padding: 0.5rem;
   border: 1px solid #c8c8c8;
   border-radius: 5px;
@@ -10481,9 +10484,13 @@ header .test {
 }
 
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
-  background-color: #015696;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
+  background-color: #194787;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 4rem;
+    font-family: 'futura-pt', sans-serif;
+    font-weight: 700;
+}
 }
 
 body.woocommerce-account .container:nth-child(2) {
@@ -10491,7 +10498,7 @@ body.woocommerce-account .container:nth-child(2) {
 }
 body.woocommerce-account .container:nth-child(2) h2 {
   color: #000000;
-  font-family: "Epilogue", sans-serif;
+  font-family: "futura-pt", sans-serif;
   font-weight: 600;
   padding-bottom: 1rem;
   text-align: center;
@@ -10539,7 +10546,7 @@ p.form-note a{
 }
 
 .woocommerce-account .woocommerce-MyAccount-content {
-    font-family: "Epilogue", sans-serif;
+    font-family: "futura-pt", sans-serif;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content p {
@@ -10547,7 +10554,7 @@ p.form-note a{
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation {
-    font-family: "Epilogue", sans-serif;
+    font-family: "futura-pt", sans-serif;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul{
@@ -10564,11 +10571,12 @@ p.form-note a{
 }
 
 .woocommerce ul.products li.product p {
-    margin-top: 20px;
-    font-family: "Oswald", sans-serif;
-    margin-bottom: 0;
-    font-weight: 300;
-    font-size: 15px;
+  margin-top: 20px;
+  font-family: "futura-pt", sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #e8e8e8;
 }
 
 .woocommerce ul.products li.product a img {
@@ -10634,4 +10642,12 @@ div.asl_w {
 .product .cart .quantity {
   display: inline-block;
   margin-right: 0;
+}
+
+.product .cart .quantity input{
+    border: 1px solid #c8c8c8;
+    font-family: 'futura-pt', sans-serif;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 4rem;
 }
