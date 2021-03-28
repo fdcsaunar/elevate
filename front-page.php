@@ -6,8 +6,7 @@
 
       <img class="img-fluid mx-auto d-block" src="<?= get_template_directory_uri(); ?>/src/assets/images/ais-main.svg">
 
-      <p>Welcome to our 2nd Virtual Trade Show. Powered by our unique buying platform that<br>
-        showcases your product, delivers your discounts and drives sales of your products.</p>
+      <p>Welcome to the launch of the inaugural mid year AIS event.<br>April is a great time to purchase product leading into the heavier trading periods of May and June<br>and this is why we have created this event using our second generation buying platform.</p>
 
       <a class="mx-auto d-block" href="#">SHOP NOW</a>
 
@@ -41,6 +40,10 @@
           </div>
 
         </div>
+
+        <p>We have put together 47 of AIS’s best suppliers and negotiated as many deals as we can to enable you to buy better during this week long event. There are over _____ thousand products on offer to you in this event.</p>
+
+        <p>We hope that some will spark your purchasing interest and you can enjoy the GP$ savings that come with it.</p>
 
       </div>
 
@@ -84,17 +87,9 @@
         <h1>SUPPLIER SPONSORS</h1>
       </div>
 
-      <div class="col-lg-3">
-        <img class="img-fluid" src="<?= get_template_directory_uri(); ?>/src/assets/images/ss-excision.png">
+      <div class="col-lg-9">
+        <img class="img-fluid" src="<?= get_template_directory_uri(); ?>/src/assets/images/supplier-sponsors-row.png">
       </div>
-
-      <div class="col-lg-3">
-        <img class="img-fluid" src="<?= get_template_directory_uri(); ?>/src/assets/images/ss-peerless.png">
-      </div>
-
-      <div class="col-lg-3">
-        <img class="img-fluid" src="<?= get_template_directory_uri(); ?>/src/assets/images/ss-weldclass.png">
-      </div> 
 
     </div>
 

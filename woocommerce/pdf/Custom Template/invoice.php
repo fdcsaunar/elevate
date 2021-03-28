@@ -51,12 +51,16 @@
 				<?php if ( isset($this->settings['display_number']) ) { ?>
 				<?php } ?>
 				<tr class="order-number">
-					<th><?php _e( 'Online Reference Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
+					<th><?php _e( 'Platform Docket No#', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 					<td><?php $this->order_number(); ?></td>
 				</tr>
 				<tr class="order-date">
 					<th><?php _e( 'Order Date:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 					<td><?php $this->order_date(); ?></td>
+				</tr>
+				<tr class="order-number">
+					<th><?php _e( 'Store Order Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
+					<td><?php get_post_meta( $this->order->get_id(), 'wc_order_field_7542', true ); ?></td>
 				</tr>
 				<?php do_action( 'wpo_wcpdf_after_order_data', $this->type, $this->order ); ?>
 			</table>			
@@ -71,7 +75,7 @@
 		<tr>
 			<th class="product"><?php _e('Product', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 			<th class="supplier"><?php _e('Supplier', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-			<th class="price"><?php _e('Store Order Number', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
+			<th class="price"><?php _e('Manufacturers Code', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 			<th class="quantity"><?php _e('Quantity', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 			<th class="price"><?php _e('Price', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
 		</tr>
