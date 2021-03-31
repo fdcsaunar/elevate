@@ -700,8 +700,10 @@ function custom_field_display_after_desc(){
 
     // Display
     echo "<p class='product_meta note' style='display:none;'>$note</p>";
-    echo "<div class='product_meta description'><p>$desc</p></div>";
+    //echo "<div class='product_meta description'><p>$desc</p></div>";
 }
+
+add_filter( 'woocommerce_email_recipient_new_order', 'vs_conditional_email_recipient', 10, 2 );
 
 function vs_conditional_email_recipient( $recipient, $order ) {
 
@@ -727,10 +729,13 @@ function vs_conditional_email_recipient( $recipient, $order ) {
 		// we can bail if we've found one, no need to add the recipient more than once
         $cats = get_the_terms( $product->get_id(), 'product_cat' );
     $contact_details = get_field('supplier_contact_details', 'product_cat_'.$cats[0]->term_id);
-		if ( $product && $product->needs_shipping() ) {
-			$recipient .= ', '.$contact_details['supplier_email'].', '.$contact_details['additional_supplier_email'];
+    $supplier_1 = ( isset($contact_details['supplier_email']) ) ? ', '.$contact_details['supplier_email'] : '';
+    // $supplier_2 = ( isset($contact_details['additional_supplier_email']) ) ? ', '.$contact_details['additional_supplier_email'] : '';
+
+		// if ( $product && $product->needs_shipping() ) {
+			$recipient .= $supplier_1;
 			return $recipient;
-		}
+		// }
 	}
 	
 	return $recipient;
@@ -871,3 +876,21 @@ function cfwc_display_custom_bonus_image()
     }
 }
 add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_bonus_image');
+
+add_filter('woocommerce_email_subject_new_order', 'change_admin_email_subject', 1, 2);
+
+function change_admin_email_subject( $subject, $order ) {
+	global $woocommerce;
+
+	$store_order_no = get_post_meta( $order->get_id(), '_billing_cstm_wp_order_number', true );
+
+    $items = $order->get_items();
+    foreach( $items as $it ){
+        $supplier = get_the_terms ( $it->get_product_id(), 'product_cat' )[0]->name;
+    }
+
+
+	$subject = 'New Order (# '.$order->get_id().'), Store order number: '.$store_order_no.' for Supplier: '.$supplier;
+
+	return $subject;
+}

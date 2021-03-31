@@ -1,55 +1,62 @@
 <?php get_header();?>
 
-<section id="hero" class="justify-content-center">
+<section id="hero">
 
-  <div class="container">
+    <div class="container">
+    
+        <div class="w-100 p-3 mx-auto">
+            <img class="img-fluid mx-auto d-block" src="<?= get_template_directory_uri(); ?>/src/assets/images/ais-main.svg">
 
-      <img class="img-fluid mx-auto d-block" src="<?= get_template_directory_uri(); ?>/src/assets/images/ais-main.svg">
-
-      <p>Welcome to the launch of the inaugural mid year AIS event.<br>April is a great time to purchase product leading into the heavier trading periods of May and June<br>and this is why we have created this event using our second generation buying platform.</p>
-
-      <a class="mx-auto d-block" href="#">SHOP NOW</a>
-
-      <img class="img-fluid mx-auto d-block" src="<?= get_template_directory_uri(); ?>/src/assets/images/laptop1.png">
-      
-      <div class="countdown">
-
-        <h1>COUNTDOWN TO ELEVATE '21</h1>
-        <h3>APRIL 12TH-16TH, 2021</h3>
-
-        <div class="row justify-content-center align-items-center">
-
-          <div class="col-lg-2 col-md-3 col-sm-4">
-            <h2 id="day">00</h2>
-            <p>DAYS</p>
-          </div>
-
-          <div class="col-lg-2 col-md-3 col-sm-4">
-            <h2 id="hour">00</h2>
-            <p>HOURS</p>
-          </div>
-
-          <div class="col-lg-2 col-md-3 col-sm-4">
-            <h2 id="min">00</h2>
-            <p>MINUTES</p>
-          </div>
-
-          <div class="col-lg-2 col-md-3 col-sm-4">
-            <h2 id="sec">00</h2>
-            <p>SECONDS</p>
-          </div>
-
+            <p>Welcome to the launch of the inaugural mid year AIS event.<br>April is a great time to purchase product leading into the heavier trading periods of May and<br>June and this is why we have created this event using our second generation buying platform.</p>
+            
+            <a class="mx-auto d-block" href="#">SHOP NOW</a>
+            
+            <img class="img-fluid mx-auto d-block" src="<?= get_template_directory_uri(); ?>/src/assets/images/laptop1.png">
         </div>
 
-        <p>We have put together 47 of AIS’s best suppliers and negotiated as many deals as we can to enable you to buy better during this week long event. There are over _____ thousand products on offer to you in this event.</p>
+        <div class="countdown">
 
-        <p>We hope that some will spark your purchasing interest and you can enjoy the GP$ savings that come with it.</p>
+            <h1>COUNTDOWN TO ELEVATE '21</h1>
+            <h3>APRIL 12TH-16TH, 2021</h3>
+
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <h2 id="day">00</h2>
+                    <p>DAYS</p>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <h2 id="hour">00</h2>
+                    <p>HOURS</p>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <h2 id="min">00</h2>
+                    <p>MINUTES</p>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <h2 id="sec">00</h2>
+                    <p>SECONDS</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-75 p-3 mx-auto">
+            <p>We have put together 47 of AIS’s best suppliers and negotiated as many deals as we can to enable you to buy better during this week long event. There are over thousands of products on offer to you in this event. We hope that some will spark your purchasing interest and you can enjoy the GP$ savings that come with it.</p>
+        </div>
+
+        
 
       </div>
+    
+    </div>
 
-  </div>
 
 </section>
+
 
 <section id="conference-central">
 
@@ -63,7 +70,7 @@
 
         <p>You will find all of the AIS Conference information on THE VAULT in the Conference Central section.</p>
 
-        <a href="#">VISIT THE VAULT</a>
+        <a href="https://aisonline.sharepoint.com/sites/AustralianIndustrialSupplies/SitePages/Elevate-Buying-Showcase-Central.aspx">VISIT THE VAULT</a>
 
       </div>
 
@@ -115,22 +122,65 @@
  
         <h1>BREAKING<br>NEW GROUND</h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>In our second generation buying platform we have made changes to enhance your buyingv experience across the suppliers participating. We identified the issues from the first event, took on board some of the feedback and have been able to make some advancement in these areas defined below.</p>
 
         <div class="links">
 
           <a href="#">SHOP NOW</a>
-          <a href="#">HOW IT WORKS</a>
+          <a href="#whats-changed">WHAT'S CHANGED?</a>
 
         </div>
 
-        
-
       </div>
-
-      
         
     </div>
+
+  </div>
+
+</section>
+
+<section id="whats-changed">
+
+  <div class="container">
+
+    <h3>WHAT'S CHANGED?</h3>
+
+    <div class="whats-changed-slider">
+
+          <div>
+            <p class="corner">More seamless transaction of orders direct to the supplier.</p>
+          </div>
+
+          <div>
+            <p class="corner">Improved bonus item capability and visibility.</p>
+          </div>
+
+          <div>
+            <p class="corner">Order wide Discounts - calculated at the check out stage.</p>
+          </div>
+
+          <div>
+            <p class="corner">Improved search functionality.</p>
+          </div>
+
+          <div>
+            <p class="corner">Ability to add additional lines of data with manual entry.</p>
+          </div>
+
+          <div>
+            <p class="corner">Export your orders in both PDF and CSV format.</p>
+          </div>
+
+          <div>
+            <p class="corner">Improved bulk pricing representation. When you enter the quantity required the pricing will move to the associated price discount.</p>
+          </div>
+
+          <div>
+            <p class="corner">Order placing improvements - orders across multiple suppliers – Easier check out – you can check out at the end of the week or each day but all of your supplier purchases will be held in the shopping cart across multiple suppliers in this event. You will still need to check out and place your order number specific to that supplier one by one but they will all show in the shopping cart area.</p>
+          </div>
+
+        </div>
+
 
   </div>
 

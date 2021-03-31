@@ -66,6 +66,18 @@ jQuery(document).on('ready', function () {
         jQuery('.woocommerce-additional-fields__field-wrapper').append(jQuery('#billing_cstm_wp_order_number_field').detach());
     }
 
+    $('.whats-changed-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1000,
+        dots: false,
+        arrows: false,
+        speed: 1000,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
+
     $('.testing').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -199,7 +211,7 @@ function elevateSupplierTotal() {
             p += parseFloat(stripCharacters($.trim($(this).find('.product-subtotal .woocommerce-Price-amount bdi').text())));
         });
         $(this).find('.quantity').text(q);
-        $(this).find('.sub-total strong').text('$' + numberWithCommas(p));
+        $(this).find('.sub-total strong').text('$' + numberWithCommas(addZeroes(p)));
     });
 }
 
@@ -212,3 +224,11 @@ function stripCharacters(str) {
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function addZeroes(num) {
+    num = num.toString();
+    const dec = num.split('.')[1]
+    const len = dec && dec.length > 2 ? dec.length : 2
+    return Number(num).toFixed(len)
+  }
+  

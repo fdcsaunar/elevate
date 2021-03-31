@@ -60,7 +60,7 @@
 				</tr>
 				<tr class="order-number">
 					<th><?php _e( 'Store Order Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php get_post_meta( $this->order->get_id(), 'wc_order_field_7542', true ); ?></td>
+					<td><?php echo $pickup_date = get_post_meta( $this->order->get_id(), '_billing_cstm_wp_order_number', true ); ?></td>
 				</tr>
 				<?php do_action( 'wpo_wcpdf_after_order_data', $this->type, $this->order ); ?>
 			</table>			
@@ -90,14 +90,13 @@
 				<span class="item-meta"><?php echo $item['meta']; ?></span>
 				<dl class="meta">
 					<?php $description_label = __( 'SKU', 'woocommerce-pdf-invoices-packing-slips' ); // registering alternate label translation ?>
-					<?php if( !empty( $item['sku'] ) ) : ?><dt class="sku"><?php _e( 'SKU:', 'woocommerce-pdf-invoices-packing-slips' ); ?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif; ?>
 					<?php if( !empty( $item['weight'] ) ) : ?><dt class="weight"><?php _e( 'Weight:', 'woocommerce-pdf-invoices-packing-slips' ); ?></dt><dd class="weight"><?php echo $item['weight']; ?><?php echo get_option('woocommerce_weight_unit'); ?></dd><?php endif; ?>
 				</dl>
 				<?php do_action( 'wpo_wcpdf_after_item_meta', $this->type, $item, $this->order  ); ?>
 			</td>
 			<?php $terms = get_the_terms ( $item['product_id'], 'product_cat' ); ?>
 			<td class="category"><?php echo $terms[0]->name; ?></td>
-			<td class="order-number"><?php echo $pickup_date = get_post_meta( $this->order->get_id(), '_billing_cstm_wp_order_number', true ); ?></td>
+			<td class="order-number"><?php echo $item['sku']; ?></td>
 			<td class="quantity"><?php echo $item['quantity']; ?></td>
 			<td class="price"><?php echo $item['order_price']; ?></td>
 		</tr>

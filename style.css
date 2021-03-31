@@ -569,3 +569,8 @@ input[name="coupon_code"] {
 body.woocommerce-cart .actions .coupon{
   display: none;
 }
+
+#customer_note_field textarea{
+  width: 300px;
+  margin-left: 10px;
+}

@@ -6,7 +6,7 @@
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+ */ 
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -10209,11 +10209,79 @@ footer .links a {
   height: 350px;
   border-radius: 100rem;
   border: 2px solid #005696;
-  background-image: url("http://elevate.test/wp-content/uploads/2021/02/conference-central.jpg");
+  background-image: url("src/assets/images/conference-central.JPG");
   background-position: top;
   background-attachment: fixed;
   background-repeat: repeat;
 }
+
+#whats-changed {
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  #whats-changed .row {
+    height: 600px;
+  }
+
+  #whats-changed h3 {
+    font-family: "futura-pt-bold", sans-serif;
+    font-weight: 700;
+    color: #005696;
+    font-size: 1.5rem;
+    line-height: 3.2rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  #whats-changed p {
+    font-family: "futura-pt", sans-serif;
+    color: #005696;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 2.2rem;
+    text-align: center;
+    margin: auto;
+  }
+
+  .corner {
+      border: 2px solid #005696;
+      border-radius: 4rem;
+      width: fit-content !important;
+      padding: 1rem;
+  }
+
+  #whats-changed a {
+    font-family: "futura-pt", sans-serif;
+    color: #005696;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border: 2px solid #005696;
+    border-radius: 4rem;
+    text-decoration: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  #whats-changed a:hover {
+    color: white;
+    background-color: #005696;
+    transition: 0.3s;
+  }
+
+  #whats-changed .cc-image {
+    height: 350px;
+    border-radius: 100rem;
+    border: 2px solid #005696;
+    background-image: url("src/assets/images/conference-central.JPG");
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: repeat;
+  }
+
 
 #supplier-sponsors {
   position: relative;
@@ -10352,16 +10420,13 @@ footer .links a {
   height: 350px;
   border-radius: 100rem;
   border: 2px solid white;
-  background-image: url("http://elevate.test/wp-content/uploads/2021/02/tradeshow-scaled-1.jpg");
+  background-image: url("src/assets/images/");
   background-position: top;
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: contain;
 }
 
-header .test {
-  background-color: green;
-}
 .woocommerce div.product .product_title {
   font-family: "futura-pt", sans-serif;
   font-size: 32px;
@@ -10491,7 +10556,6 @@ header .test {
     font-family: 'futura-pt', sans-serif;
     font-weight: 700;
 }
-}
 
 body.woocommerce-account .container:nth-child(2) {
   height: 100vh;
@@ -10531,6 +10595,12 @@ p.form-note a{
 
 .slick-slide img {
     border-radius: 5px;
+}
+
+.whats-changed-slider .slick-track {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .cfwc-custom-field-wrapper {
@@ -10650,4 +10720,16 @@ div.asl_w {
     font-weight: 600;
     padding: 0.5rem;
     border-radius: 4rem;
+}
+
+.site-main {
+    padding: 3rem 0;
+}
+
+.fixed-top {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
