@@ -66,17 +66,17 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * 
 	 * 
 	 */
-	$bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
+	// $bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
 	
-	if( !empty($bonusprod) && $bonusprod[0] != '' ):
-	$prod = get_page_by_path($bonusprod[0], OBJECT, 'product');
-	// echo $prod->ID;
-	echo '<div class="bonus-item-meta">';
-	echo '<img src="'.get_the_post_thumbnail_url($prod->ID).'">';
-	echo '<p class="cfwc-custom-field-wrapper">'. $bonusprod[0] .'</p>';
-	echo '</div>';
+	// if( !empty($bonusprod) && $bonusprod[0] != '' ):
+	// $prod = get_page_by_path($bonusprod[0], OBJECT, 'product');
+	// // echo $prod->ID;
+	// echo '<div class="bonus-item-meta">';
+	// echo '<img src="'.get_the_post_thumbnail_url($prod->ID).'">';
+	// echo '<p class="cfwc-custom-field-wrapper">'. $bonusprod[0] .'</p>';
+	// echo '</div>';
 
-	endif;
+	// endif;
 
 
 	do_action( 'woocommerce_after_shop_loop_item' );

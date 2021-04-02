@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Sale Flash
  *
@@ -15,16 +16,25 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $post, $product;
 
 ?>
-<?php if ( $product->is_on_sale() ) : ?>
+<?php if ($product->is_on_sale()) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'SALE', 'woocommerce' ) . '</span>', $post, $product ); ?>
+	<?php echo apply_filters('woocommerce_sale_flash', '<span class="onsale">' . esc_html__('SALE', 'woocommerce') . '</span>', $post, $product); ?>
+
+	<?php
+endif;
+
+$bonusprod_image = get_post_meta(get_the_ID(), 'bonusprod_images', true);
+$bonusprod_code = get_post_meta(get_the_ID(), 'bonusprod_code', true);
+
+if ($bonusprod_image != '' || $bonusprod_code != '') : ?>
+	<?php echo '<span class="bonusprod">With Bonus Item</span>'; ?>
 
 	<?php
 endif;

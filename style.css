@@ -574,3 +574,12 @@ body.woocommerce-cart .actions .coupon{
   width: 300px;
   margin-left: 10px;
 }
+
+body.single-product span.bonusprod {
+  left: 40px;
+  top: -24px;
+  right: unset;
+}
+.content{
+  padding-top: 2rem;
+}

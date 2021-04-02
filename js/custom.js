@@ -27,6 +27,14 @@ jQuery(document).on('ready', function () {
 
     }
 
+    if( $('.product_meta.min_quantity').length ){
+        $('form .product_meta.min_quantity').parent().find('.quantity input').val($('.product_meta.min_quantity').data('quantity'));
+
+        $('ul.products .product_meta.min_quantity').each(function(){
+            $(this).parent().parent().find('form .quantity input').val($(this).data('quantity'));
+        });
+    }
+
     if ($('.woocommerce-button.invoice').length) {
         $('.woocommerce-button.invoice').text('Order');
     }
@@ -45,7 +53,9 @@ jQuery(document).on('ready', function () {
 
     if( $('.single-product').length ){
         $('.woocommerce-Tabs-panel--description').append($('.product_meta.note'));
-        $('.product_meta.note').show();
+        $('.woocommerce-Tabs-panel--description').append($('.product_meta.variations'));
+        $('.product_meta.note').removeAttr('style');
+        $('.product_meta.variations').removeAttr('style');
     }
 
     // if ($('.single-product').length) {

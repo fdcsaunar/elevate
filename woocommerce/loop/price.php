@@ -31,11 +31,18 @@ $bulkbylabel1 = get_post_meta(get_the_ID(), 'bulkbuy1_qty');
 $bulkbylabel2 = get_post_meta(get_the_ID(), 'bulkbuy2_qty');
 
 if (!empty($bulkbylabel1) && $bulkbylabel1[0] != '') :
-	echo '<span class="bulkbylabel">Bulk By ' . $bulkbylabel1[0] . '</span>';
-endif; 
+	echo '<span class="bulkbylabel">Bulk Buy ' . $bulkbylabel1[0] . '</span>';
+endif;
 
 if (!empty($bulkbylabel2) && $bulkbylabel2[0] != '') :
-	echo '<span class="bulkbylabel">Bulk By ' . $bulkbylabel2[0] . '</span>';
-endif; 
+	echo '<span class="bulkbylabel">Bulk Buy ' . $bulkbylabel2[0] . '</span>';
+endif;
+
+$title = $product->get_meta('min_quantity');
+// var_dump($product);
+if ($title) {
+	// Only display our field if we've got a value for the field title
+	echo '<div class="product_meta min_quantity" data-quantity="' . $title . '"></div>';
+}
 
 ?>

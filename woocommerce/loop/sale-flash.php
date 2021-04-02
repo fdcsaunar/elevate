@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $product;
 
-$bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
+$bonusprod_image = get_post_meta(get_the_ID(), 'bonusprod_images', true);
+$bonusprod_code = get_post_meta(get_the_ID(), 'bonusprod_code', true);
 ?>
 
 <?php if ( $product->is_on_sale() ) : ?>
@@ -29,7 +30,7 @@ $bonusprod = get_post_meta(get_the_ID(), 'bonusprod');
 
 endif; ?>
 
-<?php if( !empty($bonusprod) && $bonusprod[0] != '' ): ?>
+<?php if( $bonusprod_image != '' || $bonusprod_code != '' ): ?>
 	<?php echo '<span class="bonusprod">With Bonus Item</span>'; ?>
 
 	<?php
