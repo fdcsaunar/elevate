@@ -1,5 +1,8 @@
 var $ = jQuery;
 jQuery(document).on('ready', function () {
+    if( $('.woocommerce-product-gallery__wrapper img[src*="custom-product-placeholder"]').length == 0 ){
+    $('.wcpa_form_outer').hide()
+}
     $($('.afreg_extra_fields').detach()).insertBefore('.woocommerce.container.registration .form-row:eq(0)');
     if ($('.post-type-archive').length) {
         $('main .content .container').prepend($('.post-type-archive .woocommerce-breadcrumb').detach());
@@ -32,6 +35,7 @@ jQuery(document).on('ready', function () {
 
         $('ul.products .product_meta.min_quantity').each(function(){
             $(this).parent().parent().find('form .quantity input').val($(this).data('quantity'));
+            $(this).parent().parent().find('form button[type="submit"]').attr('data-quantity', $(this).data('quantity'));
         });
     }
 
@@ -52,10 +56,15 @@ jQuery(document).on('ready', function () {
     }
 
     if( $('.single-product').length ){
-        $('.woocommerce-Tabs-panel--description').append($('.product_meta.note'));
+        $($('.product_meta.note').detach()).insertAfter($('form.cart button[type="submit"]'));
         $('.woocommerce-Tabs-panel--description').append($('.product_meta.variations'));
         $('.product_meta.note').removeAttr('style');
         $('.product_meta.variations').removeAttr('style');
+
+        var videoSrc = $('.product_meta.product-video').data('video');
+        if( videoSrc != undefined ){
+            $('.woocommerce-Tabs-panel--description').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/'+videoSrc+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+        }
     }
 
     // if ($('.single-product').length) {
@@ -232,10 +241,11 @@ function stripCharacters(str) {
 }
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function addZeroes(num) {
+    num = num.toFixed(2);
     num = num.toString();
     const dec = num.split('.')[1]
     const len = dec && dec.length > 2 ? dec.length : 2

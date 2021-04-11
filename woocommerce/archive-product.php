@@ -80,7 +80,7 @@ if ($images) : ?>
 		<p>Supplier Email: <a href="mailto:<?php the_sub_field('supplier_email'); ?>"><?php the_sub_field('supplier_email'); ?></a></p>
 		<?php endif; ?>
 		<?php if( get_sub_field('supplier_phone') != '' ): ?>
-		<p>Supplier Ph: <a href="tel:<?php the_sub_field('supplier_phone'); ?>"><?php the_sub_field('supplier_phone'); ?><a></p>
+		<p>Supplier Phone: <a href="tel:<?php the_sub_field('supplier_phone'); ?>"><?php the_sub_field('supplier_phone'); ?><a></p>
 		<?php endif; ?>
 	</div> 
 	<div class="col-md-6">
@@ -91,7 +91,7 @@ if ($images) : ?>
 		<p>AIS Category Email: <a href="mailto:<?php the_sub_field('ais_category_email'); ?>"><?php the_sub_field('ais_category_email'); ?></a></p>
 		<?php endif; ?>
 		<?php if( get_sub_field('ais_category_manager_Phone') != '' ): ?>
-		<p>AIS Category Manager Ph: <a href="tel:<?php the_sub_field('ais_category_manager_Phone'); ?>"><?php the_sub_field('ais_category_manager_Phone'); ?></a></p>
+		<p>AIS Category Manager Phone: <a href="tel:<?php the_sub_field('ais_category_manager_Phone'); ?>"><?php the_sub_field('ais_category_manager_Phone'); ?></a></p>
 		<?php endif; ?>
 	</div>
 </div>
@@ -181,10 +181,10 @@ do_action( 'woocommerce_after_main_content' );
 					<?php endif; ?>
 
 
+					<?php if( have_rows('supplier_videos', $category) ): ?>
                 <h1 class="supplier">Supplier Videos</h1>
                 <div class="supplier-videos">
 					
-					<?php if( have_rows('supplier_videos', $category) ): ?>
                         
 						<?php while( have_rows('supplier_videos', $category) ): the_row(); ?>
 						<div class="video">
@@ -200,9 +200,9 @@ do_action( 'woocommerce_after_main_content' );
 
 						</div>
 						<?php endwhile; ?>
-                    <?php endif; ?>
 
         		</div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

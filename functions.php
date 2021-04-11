@@ -234,7 +234,7 @@ function cfwc_display_custom_field4()
     global $post;
     // Check for the custom field value
     $product = wc_get_product($post->ID);
-    $title = $product->get_meta('moqty');
+    $title = $product->get_meta('min_quantity');
     // var_dump($product);
     if ($title) {
         // Only display our field if we've got a value for the field title
@@ -502,7 +502,7 @@ function redirectemall()
     }
 }
 
-// add_action('template_redirect', 'redirectemall');
+add_action('template_redirect', 'redirectemall');
 
 
 
@@ -723,7 +723,7 @@ function custom_field_display_after_desc(){
     global $product;
 
     // Get the custom field value
-    $note = '<span class="note">Note: <i>'.get_post_meta( $product->get_id(), 'prodnote', true ).'<i></span>';
+    $note = '<span class="note"><i>'.get_post_meta( $product->get_id(), 'prodnote', true ).'<i></span>';
     $desc = get_the_content( $product->get_id() );
 
     // Display
@@ -757,7 +757,7 @@ function vs_conditional_email_recipient( $recipient, $order ) {
 		// we can bail if we've found one, no need to add the recipient more than once
         $cats = get_the_terms( $product->get_id(), 'product_cat' );
     $contact_details = get_field('supplier_contact_details', 'product_cat_'.$cats[0]->term_id);
-    $supplier_1 = ( isset($contact_details['supplier_email']) ) ? ', '.$contact_details['supplier_email'] : '';
+    $supplier_1 = ( isset($contact_details['supplier_contact_email']) ) ? ', '.$contact_details['supplier_contact_email'] : '';
     // $supplier_2 = ( isset($contact_details['additional_supplier_email']) ) ? ', '.$contact_details['additional_supplier_email'] : '';
 
 		// if ( $product && $product->needs_shipping() ) {
@@ -820,12 +820,12 @@ function cfwc_create_custom_bonus_description()
     $product = wc_get_product($post->ID);
 
     $args = array(
-        'id' => 'bonusprod_dec',
+        'id' => 'bonusprod_desc',
         'label' => __('Bonus Product Description', 'cfwc'),
         'class' => 'cfwc-custom-field',
         'desc_tip' => true,
         'description' => __('Bonus Product Description', 'ctwc'),
-        'value' => $product->get_meta('bonusprod_dec')
+        'value' => $product->get_meta('bonusprod_desc')
     );
     woocommerce_wp_textarea_input($args);
 }
@@ -834,8 +834,8 @@ add_action('woocommerce_product_options_general_product_data', 'cfwc_create_cust
 function cfwc_save_custom_field_bonus_description($post_id)
 {
     $product = wc_get_product($post_id);
-    $title = isset($_POST['bonusprod_dec']) ? $_POST['bonusprod_dec'] : '';
-    $product->update_meta_data('bonusprod_dec', sanitize_text_field($title));
+    $title = isset($_POST['bonusprod_desc']) ? $_POST['bonusprod_desc'] : '';
+    $product->update_meta_data('bonusprod_desc', sanitize_text_field($title));
     $product->save();
 }
 add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_bonus_description');
@@ -845,7 +845,7 @@ function cfwc_display_custom_bonus_description()
     global $post;
     // Check for the custom field value
     $product = wc_get_product($post->ID);
-    $title = $product->get_meta('bonusprod_dec');
+    $title = $product->get_meta('bonusprod_desc');
     if ($title) {
         // Only display our field if we've got a value for the field title
         printf(
@@ -928,7 +928,7 @@ function change_admin_email_subject( $subject, $order ) {
     }
 
 
-	$subject = 'New Order (# '.$order->get_id().'), Store order number: '.$store_order_no.' for Supplier: '.$supplier;
+	$subject = 'New Elevate Order (# '.$order->get_id().'), Store order number: '.$store_order_no.' for Supplier: '.$supplier;
 
 	return $subject;
 }
@@ -938,11 +938,11 @@ function cfwc_display_custom_field_min_quant()
     global $post;
     // Check for the custom field value
     $product = wc_get_product($post->ID);
-    $title = $product->get_meta('min_quantity');
+    $title = $product->get_meta('moqty');
     // var_dump($product);
     if ($title) {
         // Only display our field if we've got a value for the field title
-        echo '<div class="product_meta min_quantity" data-quantity="'.$title.'"><h3>Min Order Qty: <span class="min_quantity">'.$title.'</span></h3></div>';
+        echo '<div class="product_meta min_quantity" data-quantity="'.$title.'"><h3 class="moq-single">Min Order Qty: <span class="min_quantity">'.$title.'</span></h3></div>';
     }
 }
 add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field_min_quant');
@@ -960,3 +960,113 @@ function cfwc_display_custom_field_variations()
     }
 }
 add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field_variations');
+
+//
+
+function cfwc_create_additional_product()
+{
+    $args = array(
+        'id' => 'customproduct',
+        'label' => __('Additional Product', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Additional Product', 'ctwc'),
+    );
+    woocommerce_wp_text_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_additional_product');
+
+
+function cfwc_save_custom_additional_product($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['customproduct']) ? $_POST['customproduct'] : '';
+    $product->update_meta_data('customproduct', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_additional_product');
+
+function cfwc_display_custom_additional_product()
+{
+
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $title = $product->get_meta('customproduct');
+    // var_dump($product);
+    if ($title) {
+        // Only display our field if we've got a value for the field title
+        echo '<div class="product_meta custom_note"><p class="custom-ins">Kindly specify below in the notes field the product you would like to buy that is not included in the website. If you would like to add more products, simply:<br><br>1. ADD TO CART THE FIRST NON-PLATFORM PRODUCT<br>2. CHANGE PRODUCT DESCRIPTION AND PRODUCT CODE<br>3. CHANGE UNITS REQUIRED AND PRICE<br>4. ADD TO CART AGAIN<br>5. REPEAT PROCESS FOR MORE NON-PLATFORM PRODUCTS</span></p></div>';
+    }
+
+
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_additional_product');
+
+//
+
+
+function cfwc_create_product_video()
+{
+    $args = array(
+        'id' => 'productvideo',
+        'label' => __('Product Video URL', 'cfwc'),
+        'class' => 'cfwc-custom-field',
+        'desc_tip' => true,
+        'description' => __('Product Video URL', 'ctwc'),
+    );
+    woocommerce_wp_text_input($args);
+}
+add_action('woocommerce_product_options_general_product_data', 'cfwc_create_product_video');
+
+
+function cfwc_save_custom_product_video($post_id)
+{
+    $product = wc_get_product($post_id);
+    $title = isset($_POST['productvideo']) ? $_POST['productvideo'] : '';
+    $product->update_meta_data('productvideo', sanitize_text_field($title));
+    $product->save();
+}
+add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field_product_video');
+
+function cfwc_display_custom_product_video()
+{
+
+    global $post;
+    // Check for the custom field value
+    $product = wc_get_product($post->ID);
+    $title = $product->get_meta('productvideo');
+    // var_dump($product);
+    if ($title) {
+        // Only display our field if we've got a value for the field title
+        echo '<p class="product_meta product-video" data-video="'.$title.'" style="display:none;"></p>';
+    }
+
+
+}
+add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_product_video');
+
+// add_action('pdf_template_order_number_text', 'custom_pdf_template_vat_number_text');
+// add_filter( 'pdf_template_invoice_number_text', 'custom_pdf_template_vat_number_text' );
+// function custom_pdf_template_vat_number_text() {
+//     return 'Test Invoice: 123';
+// }
+
+// add_filter( 'wpo_wcpdf_filename', 'wpo_wcpdf_custom_filename', 10, 4 );
+function wpo_wcpdf_custom_filename( $filename, $template_type, $order_ids, $context ) {
+	$count = count($order_ids);
+ 
+	if ( $count == 1 && $template_type == 'invoice') {
+		$order = wc_get_order($order_ids[0]);
+        $items = $order->get_order_items();
+        foreach( $items as $item_id => $item ){
+            $terms = get_the_terms ( $item['product_id'], 'product_cat' );
+            $supplier_name = sanitize_title( $terms[0]->name);
+        }
+		# change the filename
+		$filename = $supplier_name.'-'.$order->get_order_number().'.pdf';
+
+	}
+
+	return $filename;
+}

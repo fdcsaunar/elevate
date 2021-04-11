@@ -10428,14 +10428,105 @@ footer .links a {
 }
 
 .woocommerce div.product .product_title {
-  font-family: "futura-pt", sans-serif;
-  font-size: 32px;
-  color: black;
+  font-family: "futura-pt-bold", sans-serif;
+  font-size: 30px;
+  color: #194787;
+  font-weight: 900;
+  margin: 1.2rem 0;
 }
 
+.woocommerce table.shop_table {
+  margin: 0 -1px 24px 0;
+  text-align: center;
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 10px;
+  font-family: 'futura-pt', sans-serif;
+  font-style: normal;
+}
+
+.woocommerce div.product form.cart table {
+  border: 2px solid #c8c8c8;
+}
+
+.product_meta {
+  margin-bottom: 0.3rem;
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b8b8b8;
+}
+
+.product_meta .custom-ins {
+
+  font-style: normal;
+  color: black;
+  font-family: 'futura-pt';
+  text-transform: none;
+
+}
+
+.product_meta .moq-single {
+
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: fit-content;
+  padding: 0.5rem;
+  font-style: normal;
+  font-family: 'futura-pt', sans-serif;
+  font-size: 1rem;
+  color: #194787;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.product_meta .sku {
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product_meta .barcode {
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product_meta .category {
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product_meta .brand {
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b8b8b8;
+}
+
+.product_meta .cat {
+  font-size: 16px;
+  font-family: 'futura-pt-condensed', sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b8b8b8;
+}
+
+
 .content {
-  padding-top: 0;
-  padding-bottom: 2rem;
+  padding: 3rem 0;
 }
 
 .products.columns-4 h2 {
@@ -10523,7 +10614,7 @@ footer .links a {
   font-family: "futura-pt", sans-serif;
   font-weight: 600;
   color: #194787;
-  margin: 0;
+  margin: 1rem 0;
 }
 
 .woocommerce .woocommerce-result-count {
@@ -10722,6 +10813,12 @@ div.asl_w {
     border-radius: 4rem;
 }
 
+.woocommerce div.product form.cart .button {
+  vertical-align: middle;
+  float: left;
+  margin-right: 1.5rem;
+}
+
 .site-main {
     padding: 3rem 0;
 }
@@ -10732,4 +10829,28 @@ div.asl_w {
     right: 0;
     left: 0;
     z-index: 1030;
+}
+
+.entry-summary p.disclaimer {
+  display: block;
+  margin: 90px 0;
+  border: 1px solid #c8c8c8;
+  font-style: normal;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-family: 'futura-pt-condensed', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  color: #c8c8c8;
+}
+
+.alg_open_price {
+  width: 75px;
+  text-align: center;
+  border: 1px solid #c8c8c8;
+  font-family: 'futura-pt', sans-serif;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 4rem;
 }

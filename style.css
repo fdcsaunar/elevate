@@ -3,6 +3,42 @@ Theme Name: Elevate
 Author: AIS Team
 */
 
+.supplier-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  font-family: "futura-pt";
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  color: #194787;
+  margin: 1rem 0;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-family: "futura-pt";
+  font-style: normal;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.alg_open_price text {
+  width: 75px;
+  text-align: center;
+  border: 1px solid #c8c8c8;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 4rem;
+}
+
 .woocommerce-form label {
   display: none !important;
 }
@@ -29,7 +65,6 @@ Author: AIS Team
   margin: 0 !important;
 }
 
-
 .woocommerce .woocommerce-form-login .woocommerce-form-login__submit {
   color: #fff;
   border: 1px solid #015696;
@@ -44,7 +79,7 @@ Author: AIS Team
 
 .product_meta {
   font-size: 15px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   margin-bottom: 12px;
 }
 
@@ -118,7 +153,7 @@ input[type="email"] {
   margin-top: 10px !important;
 }
 
-div[id*='ajaxsearchlite'].wpdreams_asl_container {
+div[id*="ajaxsearchlite"].wpdreams_asl_container {
   width: 20% !important;
   float: right;
   margin-left: 30px !important;
@@ -168,7 +203,6 @@ div[id*='ajaxsearchlite'].wpdreams_asl_container {
 .page-id-263 .email-password {
   padding-left: 100px;
   padding-right: 90px;
-
 }
 
 .page-id-263 .woocommerce.container.registration .show-password-input {
@@ -272,7 +306,7 @@ form.woocommerce-checkout .woocommerce-input-wrapper textarea {
   border-radius: 30px;
   background-color: #daa70d;
   text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   line-height: 2.5;
   color: #fff;
   display: block;
@@ -298,7 +332,7 @@ form.woocommerce-checkout .woocommerce-input-wrapper textarea {
   font-style: italic;
   padding: 1rem;
   border-radius: 5px;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 12px;
   color: #c8c8c8;
 }
@@ -327,15 +361,14 @@ h1.supplier {
   color: #015696;
 }
 
-
-@media(max-width:767px) {
+@media (max-width: 767px) {
   header .top-menu {
     display: block !important;
   }
 
   header .top-menu li:nth-child(2) a {
     font-size: 12px;
-    margin-top: 4px
+    margin-top: 4px;
   }
 
   #hero .container {
@@ -438,7 +471,7 @@ input[name="coupon_code"] {
 .woocommerce-product-seller .switch {
   --active: #194787;
   --active-inner: #fff;
-  --focus: 2px rgba(39, 94, 254, .3);
+  --focus: 2px rgba(39, 94, 254, 0.3);
   --border: #bbc1e1;
   --border-hover: #194787;
   --background: #fff;
@@ -459,12 +492,13 @@ input[name="coupon_code"] {
 }
 
 .woocommerce-product-seller .switch:after {
-  content: '';
+  content: "";
   display: block;
   left: 0;
   top: 0;
   position: absolute;
-  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+    opacity var(--d-o, 0.2s);
 }
 
 .woocommerce-product-seller .switch:checked {
@@ -562,15 +596,15 @@ input[name="coupon_code"] {
   pointer-events: none;
 }
 
-.single-product div.product_meta:not(form div.product_meta, div.description){
+.single-product div.product_meta:not(form div.product_meta, div.description) {
   display: none;
 }
 
-body.woocommerce-cart .actions .coupon{
+body.woocommerce-cart .actions .coupon {
   display: none;
 }
 
-#customer_note_field textarea{
+#customer_note_field textarea {
   width: 300px;
   margin-left: 10px;
 }
@@ -580,6 +614,20 @@ body.single-product span.bonusprod {
   top: -24px;
   right: unset;
 }
-.content{
+.content {
   padding-top: 2rem;
+}
+
+.products.columns-4 h2.related-title {
+  font-family: "Epilogue", sans-serif;
+  font-size: 26px;
+  color: black;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.products.columns-4 .product_meta.note{
+  display: none;
 }
